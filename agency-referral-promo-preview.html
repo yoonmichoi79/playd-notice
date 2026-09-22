@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PLAY.D 대대행사 소개 프로모션 안내</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral-1:#FF5A63;
+    --coral-2:#FF7A72;
+    --coral-3:#FF9A85;
+    --navy:#2A1B4D;
+    --navy-soft:#3B2A66;
+    --gold:#FFE58A;
+    --gold-deep:#F5C542;
+    --ink:#3A1030;
+    --muted:#8A7086;
+    --body-bg:#FFF6F1;
+    --card-bg:#FFFFFF;
+    --divider:#F1E3DC;
+
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --body-bg:#1B1024;
+      --card-bg:#271A30;
+      --ink:#F3E9EF;
+      --muted:#C3AFC0;
+      --divider:#3A2A42;
+    }
+  }
+  :root[data-theme="dark"]{
+    --body-bg:#1B1024;
+    --card-bg:#271A30;
+    --ink:#F3E9EF;
+    --muted:#C3AFC0;
+    --divider:#3A2A42;
+  }
+
+  html{ scroll-padding-top:env(safe-area-inset-top,0px); }
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:var(--body-bg);
+    color:var(--ink);
+    font-family:'Nanum Gothic', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .page{ max-width:760px; margin:0 auto; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg, var(--coral-1) 0%, var(--coral-2) 55%, var(--coral-3) 100%);
+    padding:40px 32px 64px;
+  }
+  .blob{ position:absolute; border-radius:50%; }
+  .blob.b1{ width:280px; height:280px; top:-120px; right:-90px; background:rgba(255,255,255,0.12); }
+  .blob.b2{ width:220px; height:220px; bottom:-110px; left:-80px; background:rgba(255,255,255,0.09); }
+  .blob.b3{ width:140px; height:140px; top:130px; right:60px; background:rgba(255,229,138,0.16); }
+
+  .hero-top{
+    position:relative; z-index:2;
+    display:flex; align-items:flex-start; justify-content:space-between;
+    gap:14px; flex-wrap:wrap;
+    margin-bottom:34px;
+  }
+  .logo{ font-size:20px; font-weight:800; color:#fff; letter-spacing:0.5px; }
+  .logo span{ color:var(--gold); }
+
+  .countdown{
+    background:var(--navy);
+    border-radius:12px;
+    padding:10px 20px;
+    text-align:center;
+    box-shadow:0 10px 22px rgba(42,27,77,0.3);
+  }
+  .countdown .dday{ font-size:26px; font-weight:800; color:var(--gold); line-height:1; }
+  .countdown .cap{ margin-top:2px; font-size:11.5px; font-weight:700; color:#EADFFF; }
+
+  .hero-body{ position:relative; z-index:2; }
+
+  .kicker{ font-size:15px; font-weight:700; color:#FFF3E0; }
+  .kicker b{ color:var(--gold); font-weight:800; }
+
+  h1{
+    margin:12px 0 0;
+    font-size:clamp(26px, 5.4vw, 38px);
+    font-weight:800; line-height:1.32; color:#fff;
+  }
+  h1 .hl{ color:var(--gold); }
+
+  .stat-row{
+    display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+    margin-top:26px;
+  }
+  .stat-num{ font-size:clamp(52px, 12vw, 78px); font-weight:800; color:var(--gold); line-height:1; }
+  .stat-label{ font-size:18px; font-weight:800; color:#fff; }
+  .cap-pill{
+    background:#fff; color:var(--coral-1);
+    font-size:16px; font-weight:800;
+    padding:11px 22px; border-radius:999px;
+  }
+
+  .sub{ margin-top:18px; font-size:14.5px; color:#FFEDEA; }
+  .sub em{ font-style:normal; font-weight:800; color:var(--gold); }
+
+  /* ---------- OVERVIEW STRIP ---------- */
+  .overview{
+    background:var(--card-bg);
+    margin:-40px 20px 0;
+    position:relative; z-index:3;
+    border-radius:14px;
+    box-shadow:0 16px 34px rgba(42,27,77,0.16);
+    padding:22px 26px;
+    display:grid; grid-template-columns:1fr 1fr; gap:14px 20px;
+  }
+  .overview .item .label{ font-size:12.5px; font-weight:800; color:var(--coral-1); margin-bottom:4px; }
+  .overview .item .val{ font-size:14.5px; font-weight:700; color:var(--ink); }
+
+  @media (max-width:480px){
+    .overview{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- CARDS ---------- */
+  .cards{
+    padding:52px 20px 8px;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+  }
+  @media (max-width:680px){ .cards{ grid-template-columns:1fr; } }
+
+  .card{
+    background:var(--card-bg);
+    border-radius:12px;
+    padding:24px 22px 22px;
+    box-shadow:0 14px 28px rgba(42,27,77,0.12);
+  }
+  .card .icon{
+    width:42px; height:42px; border-radius:50%;
+    background:#FFE9E4; display:flex; align-items:center; justify-content:center;
+    margin-bottom:14px;
+  }
+  .card .icon svg{ width:21px; height:21px; }
+  .card .label{ font-size:17px; font-weight:800; color:var(--navy); margin-bottom:8px; }
+  .card .desc{ font-size:13.5px; line-height:1.65; color:var(--muted); }
+  .card .desc b{ color:var(--coral-1); }
+
+  /* ---------- APPLY SECTION ---------- */
+  .apply{
+    margin:40px 20px 0;
+    background:var(--card-bg);
+    border-radius:14px;
+    padding:28px 26px;
+    box-shadow:0 14px 28px rgba(42,27,77,0.1);
+  }
+  .apply h2{ font-size:18px; font-weight:800; color:var(--navy); margin:0 0 6px; }
+  .apply .lead{ font-size:14px; color:var(--muted); margin:0 0 18px; }
+
+  .subject-line{
+    background:#FFF1EE;
+    border-radius:8px;
+    padding:13px 16px;
+    font-size:13.5px;
+    margin-bottom:16px;
+  }
+  .subject-line .tag{ color:var(--coral-1); font-weight:800; margin-right:8px; }
+
+  ol.steps{ margin:0; padding-left:0; list-style:none; counter-reset:step; }
+  ol.steps li{
+    counter-increment:step;
+    display:grid; grid-template-columns:26px 1fr; gap:2px 12px;
+    padding:11px 0; border-bottom:1px solid var(--divider);
+    font-size:14px;
+  }
+  ol.steps li:last-child{ border-bottom:none; }
+  ol.steps li::before{
+    content:counter(step);
+    color:#fff; background:var(--coral-1);
+    font-weight:800; font-size:12px;
+    width:20px; height:20px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta-wrap{ text-align:center; padding:36px 20px 12px; }
+  .cta{
+    display:inline-block;
+    background:var(--navy); color:var(--gold);
+    text-decoration:none;
+    font-size:16px; font-weight:800;
+    padding:15px 32px; border-radius:999px;
+    box-shadow:0 10px 22px rgba(42,27,77,0.28);
+  }
+  .cta-note{ margin:12px 0 0; font-size:12.5px; color:var(--muted); }
+
+  footer{
+    padding:30px 26px 40px; text-align:center;
+    font-size:12.5px; color:var(--muted);
+  }
+  footer p{ margin:3px 0; }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="hero">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+
+      <div class="hero-top">
+        <div class="logo">PLAY<span>.</span>D</div>
+        <div class="countdown">
+          <div class="dday">D-100</div>
+          <div class="cap">~2026.12.31 마감</div>
+        </div>
+      </div>
+
+      <div class="hero-body">
+        <div class="kicker">혹시, 주변에 알고 지내시는 <b>'대대행사'</b> 있으신가요?</div>
+        <h1>PLAY.D에 대대행사 소개하고<br><span class="hl">보너스</span> 받으세요!</h1>
+
+        <div class="stat-row">
+          <div class="stat-num">1%</div>
+          <div class="stat-label">지급</div>
+          <div class="cap-pill">최대 500만원</div>
+        </div>
+
+        <div class="sub">소개한 대대행사에서 <em>실제 유상 광고 집행 시</em> · 3개월 평균 집행 금액 기준 지급</div>
+      </div>
+    </div>
+
+    <div class="overview">
+      <div class="item"><div class="label">대상</div><div class="val">플레이디 전직원</div></div>
+      <div class="item"><div class="label">내용</div><div class="val">대대행사 소개 → 실 집행 확인 후 보너스 지급</div></div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#FF5A63" stroke-width="1.7"><path d="M8 12a4 4 0 1 1 8 0"/><path d="M4 20c1.8-3.2 4.8-5 8-5s6.2 1.8 8 5"/><circle cx="12" cy="8" r="3.2"/></svg></div>
+        <div class="label">지급 조건</div>
+        <div class="desc">소개한 대대행사가 계약 후 <b>익월 1일 ~ 3개월</b> 사이 실제 유상 광고 집행 시,<br><b>3개월 평균 금액 기준</b> 1% 지급</div>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#FF5A63" stroke-width="1.7"><rect x="3.5" y="5" width="17" height="15.5" rx="0.5"/><path d="M3.5 9.5h17"/><path d="M8 3v3.5M16 3v3.5"/></svg></div>
+        <div class="label">진행 기간</div>
+        <div class="desc"><b>~2026년 12월 31일</b><br>(조기 마감 시 별도 공지 예정)</div>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#FF5A63" stroke-width="1.7"><path d="M4 10a8 8 0 0 1 16 0v6a2.5 2.5 0 0 1-2.5 2.5H16"/><rect x="3" y="10" width="4" height="6" rx="1"/><rect x="17" y="10" width="4" height="6" rx="1"/></svg></div>
+        <div class="label">문의처</div>
+        <div class="desc"><b>WORKi 게시판</b><br>대대행사 소개 및 문의 접수</div>
+      </div>
+    </div>
+
+    <div class="apply">
+      <h2>참여 방법</h2>
+      <p class="lead">소개하고자 하는 대대행사 정보를 아래 양식에 맞춰 WORKi 게시판에 접수해 주세요.</p>
+      <div class="subject-line"><span class="tag">제목</span>[대대행사소개] 대대행사명_집행매체_월집행규모</div>
+      <ol class="steps">
+        <li><span>업체명 (사업자명)</span></li>
+        <li><span>담당자 연락처 (이름 / 전화 / 이메일)</span></li>
+        <li><span>월 집행 규모 (대대행 희망 매체 합산)</span></li>
+        <li><span>집행 희망 매체</span></li>
+        <li><span>기타 전달 사항 (비고)</span></li>
+      </ol>
+    </div>
+
+    <div class="cta-wrap">
+      <a class="cta" href="#">지금 WORKi에서 소개하기 →</a>
+      <p class="cta-note">게시판 링크는 추후 업데이트될 예정입니다.</p>
+    </div>
+
+    <footer>
+      <p>미디어전략팀 드림</p>
+      <p>본 프로모션은 사내 공지 목적으로 제작된 미리보기이며, 실제 발송 전 세부 문구는 변경될 수 있습니다.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
